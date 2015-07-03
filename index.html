@@ -1,8 +1,109 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World xxxxx</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<a href="page2.html">page2</a>
-</body>
+
+<html lang="en" ng-app="defectTray">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Defect Tray</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+    <div ng-controller="mainController as main" class="container">
+        
+        <div class="row">
+            <div class="form-group col-md-4"> 
+                <div class="col-md-3 lbl" style="line-height: 35px;">Tray</div>
+                <div class="input-group col-md-9">      
+                    <input type="text" focus="{{true}}" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button">Go!</button>
+                    </span>
+                </div>     
+            </div> 
+            
+                <button class="btn btn-info">Close Tray</button>
+                <button class="btn btn-warning">Clear Tray</button>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4 lbl">Tray: <span class="label label-info">{{main.trayInfo.tray}}</span></div>
+            <div class="col-md-4 lbl">Type: <span class="label label-info">{{main.trayInfo.type}}</span></div>
+            <div class="col-md-4 lbl">Rework Code: <span class="label label-info">{{main.trayInfo.reworkCode}}</span></div>
+
+            <div class="col-md-4 lbl">Size: <span class="label label-info">{{main.trayInfo.size}}</span></div>
+            <div class="col-md-4 lbl">Type: <span class="label label-info">{{main.trayInfo.type2}}</span></div>
+            <div class="col-md-4 lbl">Closed: <span class="label label-info">{{main.trayInfo.closed}}</span></div>
+
+            <div class="col-md-4 lbl">Clear: <span class="label label-info">{{main.trayInfo.clear}}</span></div>
+            <div class="col-md-4 lbl">Product Part: <span class="label label-info">{{main.trayInfo.productPart}}</span></div>
+            <div class="col-md-4 lbl">MPT Part No: <span class="label label-info">{{main.trayInfo.mptPartNo}}</span></div>
+        </div>
+        
+        <div class="row">
+            <div class="tray">
+                <div ng-repeat="tray in main.trays">
+                    <slot ng-click="main.slotClick(tray)" 
+                          ng-class="{ 'has-change': tray.hasChange, 'slot-active': tray.isActive}" class="slot"></slot>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="btn-group">
+                <button class="btn btn-default" ng-click="main.left()">
+                    <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-default" ng-click="main.right()">
+                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-default" ng-click="main.up()">
+                    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                </button>
+                <button class="btn btn-default" ng-click="main.down()">
+                    <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                </button>
+            </div>
+            <button class="btn btn-primary" ng-click="main.slotClick(main.slotActive)">Defect</button>
+        </div>
+        
+        <button ng-click="main.shuffle()">shuffle</button>
+        <button ng-click="main.sortBy()">sortByDesc</button>
+    </div>
+      
+    <script type="text/ng-template" id="modal.html">
+        <div class="modal-header">
+            <h1 class="modal-title">Defect List</h1>
+        </div>
+        <div class="modal-body">
+            <tabset>
+                <tab ng-repeat="tab in defect.tabs" heading="{{tab.title}}">
+                    <div class="defect-group">
+                        <div class="label label-block label-primary defect" ng-repeat="d in tab.defects" ng-click="defect.changeDefect(d)">
+                            {{ d.Code }}
+                        </div>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning pull-left" ng-click="defect.clearDefect()">Clear Defect</button>
+            <button class="btn btn-primary" ng-click="defect.close()">Close</button>
+        </div>
+    </script>
+    
+    <!--<script src="js/jquery.js"></script>-->
+    <script src="js/underscore.js"></script>  
+    <script src="js/angular.js"></script>
+    <script src="js/ui-bootstrap-tpls.js"></script>
+    <script src="js/defects-mock.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
 </html>
