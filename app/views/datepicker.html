@@ -1,0 +1,25 @@
+<h1>UI.Bootstap DatePicker Demo</h1>
+
+<h4>{{dt| date : short}}</h4>
+<h4>{{dt2| date : short}}</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="dd.MM.yyyy" ng-model="dt" is-open="opened" max-date="dt2" ng-required="true" />
+            <span class="input-group-btn">
+                    <button type="button" ng-click="open($event)" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+        </p>
+    </div>
+
+    <div class="col-md-6">
+        <p class="input-group">
+            <input type="text" class="form-control" datepicker-popup="dd.MM.yyyy" ng-model="dt2" is-open="opened" min-date="dt" ng-required="true" />
+            <span class="input-group-btn">
+                    <button type="button" ng-click="open($event)" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+        </p>
+    </div>
+
+</div>

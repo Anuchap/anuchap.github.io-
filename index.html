@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Angular Demo</title>
 
     <!-- Bootstrap -->
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -19,12 +19,22 @@
     <![endif]-->
 </head>
 
-<body>
+<body ng-app="MyApp" ng-cloak>
 
     <div class="container">
-        <h1><a href="datepicker.html">datepicker</a></h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#datepicker">DatePicker</a></li>
+        </ul>
+        
+        <ng-view></ng-view>
     </div>
 
+    
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="app/app.js"></script>
 </body>
 
 </html>
