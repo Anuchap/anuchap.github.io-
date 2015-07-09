@@ -23,4 +23,8 @@ app.controller('DatePickerCtrl', function ($scope) {
         $event.stopPropagation();
         $scope.opened = true;
     };
+    
+    $scope.dateOptions = {
+        class: 'datepicker'
+    };
 });
