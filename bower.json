@@ -1,22 +1,24 @@
 {
-  "name": "AngularUI",
-  "version": "0.0.0",
-  "authors": [
+    "name": "AngularUI",
+    "version": "0.0.0",
+    "authors": [
     "Anuchap <mr.izedtea@gmail.com>"
   ],
-  "license": "MIT",
-  "ignore": [
+    "license": "MIT",
+    "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ],
-  "dependencies": {
-    "angular-bootstrap": "#0.12.1",
-    "bootstrap": "~3.1.1",
-    "jquery": "~1",
-    "bootbox": "latest",
-    "blockui": "latest"
-  }
+    "dependencies": {
+        "angular-bootstrap": "#0.12.1",
+        "bootstrap": "~3.1.1",
+        "jquery": "~1",
+        "bootbox": "latest",
+        "blockui": "latest",
+        "html5shiv": "latest",
+        "respond": "latest"
+    }
 }
