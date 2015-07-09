@@ -17,20 +17,36 @@
         <script src="bower_components/html5shiv/dist/html5shiv.min.js"></script>
         <script src="bower_components/respond/dest/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        body {
+            padding-top: 70px;
+            padding-bottom: 30px;
+        }
+
+    </style>
 </head>
 
 <body ng-app="MyApp" ng-cloak>
 
+    <nav class="navba navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">Anuchap</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/">Home</a></li>
+                    <li><a href="#datepicker">DatePicker</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#datepicker">DatePicker</a></li>
-        </ul>
-        
         <ng-view></ng-view>
     </div>
 
-    
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-route/angular-route.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
